@@ -1,0 +1,138 @@
+<h1>SLIDER</h1>
+     <div class="wrapper">
+           <div class="prev-bttn"><i class='bx bx-left-arrow-alt'></i></div>
+        <div class="slides-container">
+               <div class="slide-image">
+                   <img src="Images/4.jpg" alt="">
+               </div>
+
+               <div class="slide-image">
+                <img src="Images/3.jpg" alt="">
+            </div>
+
+            <div class="slide-image">
+                <img src="Images/6.jpg" alt="">
+            </div>
+        </div>
+         <div class="next-bttn"><i class='bx bx-right-arrow-alt'></i></div>
+    </div>    
+       
+       <div class="nav-dots">
+       </div>
+
+       h1{
+        font-size: 20px;
+        text-align: center;
+        color: black;
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+        letter-spacing: 3px;
+       margin: 15px auto;
+    }
+    
+    .wrapper{
+      max-width: 700px;
+       border: 10px solid rgb(85, 80, 80);
+       margin: 20px auto;
+    }
+    
+    .slides-container{
+        height: 500px;
+        transition:900ms ;
+        position: relative;
+    }
+    
+    .slide-image{
+        height: 100%;
+        width: 100%;
+        position: absolute;
+    }
+    
+    .slide-image img{
+         width: 100%;
+         height: 100%;
+        object-fit:cover;
+    }
+    
+    .next-bttn,
+    .prev-bttn {
+        background: #eee;
+        padding: 13px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 20px;
+        box-shadow: 0 4px 8px rgba=(0, 0, 0, 0.6);
+        z-index: 100;
+        cursor: pointer;
+        transition: 400ms;
+    }
+    
+    .next-bttn:hover,
+    .prev-bttn:hover {
+        background-color: rgb(224, 161, 83);
+    }
+    
+    .prev-bttn{
+        left: 0;
+    }
+    
+    .next-bttn{
+        right: 0;
+    }
+    
+    .nav-dots{
+    display: flex;
+    height: 32px;
+    align-items: center;
+    justify-content: center;
+    margin: 16px 0;
+    }
+    
+    .single-dot {
+        background: #333;
+        height: 10px;
+        width: 10px;
+        border: 2px solid #000;
+        border-radius: 50%;
+        margin: 0 8px;
+        cursor: pointer;
+        transition: 400ms;
+    }
+    
+    .single-dot.active{
+        background-color: rgb(122, 121, 121);
+    }
+
+    const slideImage = document.querySelectorAll(".slide-image");
+const slidescontainer =document.querySelector(".slides-container");
+const nextBtn = document.querySelector(".next-bttn");
+const prevBtn = document.querySelector(".prev-bttn");
+const NavigationDots = document.querySelector(".nav-dots")
+
+
+let numberOfImages = slideImage.length;
+
+//set up the slider
+function init() {
+    /*
+    slideImage[0] = 0
+    slideImage[1] = 100%
+    slideImage[2] = 200%
+    */
+
+    slideImage.forEach((img, i) =>{
+        img.style.left = i* 100 + "%";
+    });
+
+    slideImage[0].classList.add("active");
+
+    createNavigationDots();
+}
+
+init();
+
+//create navigation dots
+
+function createNavigationDots() {
+
+}
